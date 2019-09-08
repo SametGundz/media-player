@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+   <head>
+      <meta charset='utf-8' />
+      <title>Sample HTML5 Media Player</title>
+      <link href='media-player.css' rel='stylesheet' />
+      <script src='media-player.js'></script>
+      <style type="text/css">
+         *{
+            background-color: red;
+         }
+         #all{
+            margin: auto;
+            width: 50%;
+         }
+            #all .center{
+               display: block;
+               width: 95%;
+               margin: auto;
+            }
+         button{
+            color: white;
+            margin-top: 10px;
+            width: 5%;
+            height: 30px;
+            border:0px solid white;
+         }
+         video{
+            border-radius: 5px;
+            border:1px solid #e6e600;
+            border-style: inset;
+            margin: auto;
+         }
+         img{
+            width: 100%;
+         }
+         progress{
+            margin-top: 10px;
+            width: 100%;
+            color: white;
+            background-color: #f5fffa;
+         }
+      </style>
+   </head>
+   <body>
+         <div id="all">   
+            <div id='media-player'>
+               <video id='media-video' controls class="center" poster="/pngs/thumbnail.png" ontimeupdate="updateProgressBar()">
+                  <source src='deepfake.mp4' type='video/mp4'>
+                  <source src='parrots.webm' type='video/webm'>
+               </video>
+               <div id='media-controls'>
+                  <progress id='progress-bar' min='0' max='100' value='0'>0% played</progress>
+                  <button id='play-pause-button' class='play' title='play'onclick='togglePlayPause();'><img src="pngs/play.png"></button>
+                  <button id='stop-button' class='stop' title='stop' onclick='stopPlayer();'><img src="pngs/close.png"></button>
+                  <button id='volume-inc-button' class='volume-plus' title='increase volume'onclick='changeVolume("+");'><img src="pngs/volume-up.png"></button>
+                  <button id='volume-dec-button' class='volume-minus' title='decrease volume'onclick='changeVolume("-");'><img src="pngs/volume-down.png"></button>
+                  <button id='mute-button' class='mute' title='mute'onclick='toggleMute();'><img src="pngs/mute.png"></button>
+                  <button id='volume-dec-button' class='volume-minus' title='decrease volume'onclick='timeUpdate();'><img src="pngs/next.png"></button>
+               </div>
+            </div>
+            <div id='media-play-list'>
+               <h2>You might be like</h2>
+               <ul id='play-list'>
+               <li>
+               <span class='play-item' onclick='loadVideo("parrots.webm", "parrots.mp4");'>Parrots</span>
+               </li>
+               <li>
+               <span class='play-item' onclick='loadVideo("paddle-wheel.webm",
+               "paddle-wheel.mp4");'>Paddle Steamer Wheel</span>
+               </li>
+               <li>
+               <span class='play-item' onclick='loadVideo("grass.webm", "grass.mp4");'>Grass</span>
+               </li>
+               </ul>
+               </div>
+         </div>     
+
+      </div>
+   </body>
+</html>
